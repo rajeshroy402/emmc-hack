@@ -10,7 +10,6 @@ set -euo pipefail
 echo "🧹 Starting system cleanup..."
 echo "Author: Rajesh Roy <rajeshroy402@gmail.com>"
 echo "Script: cleanup_jetson.sh"
-echo "Executed by: $USER@$HOSTNAME"
 echo "Started at: $(date)"
 
 echo "\n# 1. Remove multimedia applications"
