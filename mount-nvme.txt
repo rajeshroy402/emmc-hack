@@ -1,0 +1,30 @@
+sudo nano /etc/systemd/system/mount-nvme.service
+
+###############
+
+[Unit]
+Description=Mount NVMe SSD to /mnt/nvme
+After=local-fs.target
+Requires=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/mount /dev/nvme0n1p1 /mnt/nvme -t ext4
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+
+
+###################
+
+sudo systemctl daemon-reload
+sudo systemctl start mount-nvme.service
+sudo systemctl status mount-nvme.service
+
+###########
+
+mount | grep nvme
+
+#########
+ls /dev/nvme*
